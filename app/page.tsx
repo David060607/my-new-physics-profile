@@ -1,7 +1,13 @@
 import React from 'react';
+import Calculator from './Calculator';
 
 export default function Portfolio() {
+  const scrollToCalc = () => {
+    const calcElement = document.getElementById('calc-area');
+    calcElement?.scrollIntoView({ behavior: 'smooth' });
+  };
   return (
+    
     <div className="min-h-screen bg-slate-900 text-slate-200 selection:bg-indigo-500/30">
       {/* 배경 장식: 물리학 느낌의 은은한 광원 */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
@@ -36,9 +42,12 @@ export default function Portfolio() {
           </p>
           
           <div className="pt-8 flex gap-4">
-            <button className="px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-cyan-400 transition-all duration-300">
+            <button 
+            onClick={scrollToCalc} 
+            className="px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-cyan-400 transition-all duration-300">
               연구 업적 보기
             </button>
+
             <button className="px-6 py-3 border border-slate-700 rounded-full hover:border-cyan-500/50 hover:bg-slate-900 transition-all">
               문의하기
             </button>
