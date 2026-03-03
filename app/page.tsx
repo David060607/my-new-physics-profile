@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import Calculator from './Calculator';
+import Calculator from './calculator';
 
 export default function Portfolio() {
   const scrollToCalc = () => {
@@ -68,6 +68,7 @@ export default function Portfolio() {
             </div>
           ))}
         </div>
+        <Calculator />
       </main>
 
       <footer className="relative z-10 border-t border-slate-900 py-12 text-center text-slate-600 text-xs">
