@@ -23,7 +23,7 @@ export default function CouplePage() {
   // 3. 편지/기록 데이터
   const notes = [
     { date: "2025.03.25", content: "오늘 하늘이 너무 예쁘더라, 그대처럼" },
-    { date: "2025.03.26", content: "그대의❤️ 손모양 때문에 잠이 안와여.." },
+    { date: "2025.03.26", content: "그대의❤️ 손모양 때문에 잠이 안와여..." },
   ];
 
   return (
