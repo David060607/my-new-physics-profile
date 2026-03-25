@@ -7,7 +7,7 @@ export default function CouplePage() {
   const [days, setDays] = useState(0);
   
   useEffect(() => {
-    const start = new Date("2024-01-01"); // 우리만의 시작 날짜로 바꾸세요!
+    const start = new Date("2025-10-19"); // 우리만의 시작 날짜로 바꾸세요!
     const today = new Date();
     const diff = today.getTime() - start.getTime();
     setDays(Math.floor(diff / (1000 * 60 * 60 * 24)));
@@ -15,7 +15,7 @@ export default function CouplePage() {
 
   // 2. 공유 링크 데이터 (구글 포토 등)
   const links = [
-    { title: "📸 우리 사진첩", url: "https://photos.google.com/...", color: "bg-rose-100" },
+    { title: "📸 우리 사진첩", url: "https://photos.app.goo.gl/JwyhoDTe2zA6ogE68", color: "bg-rose-100" },
     { title: "📍 가고 싶은 맛집", url: "https://maps.google.com/...", color: "bg-orange-100" },
     { title: "🎵 우리 테마곡", url: "https://youtube.com/...", color: "bg-blue-100" },
   ];
