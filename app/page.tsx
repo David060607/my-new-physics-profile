@@ -1,78 +1,83 @@
 "use client";
-import React from 'react';
-import Calculator from './calculator';
 
-export default function Portfolio() {
-  const scrollToCalc = () => {
-    const calcElement = document.getElementById('calc-area');
-    calcElement?.scrollIntoView({ behavior: 'smooth' });
-  };
+import React, { useState, useEffect } from 'react';
+
+export default function CouplePage() {
+  // 1. D-Day 계산 (예: 2024년 1월 1일 사귀기 시작했다고 가정)
+  const [days, setDays] = useState(0);
+  
+  useEffect(() => {
+    const start = new Date("2024-01-01"); // 우리만의 시작 날짜로 바꾸세요!
+    const today = new Date();
+    const diff = today.getTime() - start.getTime();
+    setDays(Math.floor(diff / (1000 * 60 * 60 * 24)));
+  }, []);
+
+  // 2. 공유 링크 데이터 (구글 포토 등)
+  const links = [
+    { title: "📸 우리 사진첩", url: "https://photos.google.com/...", color: "bg-rose-100" },
+    { title: "📍 가고 싶은 맛집", url: "https://maps.google.com/...", color: "bg-orange-100" },
+    { title: "🎵 우리 테마곡", url: "https://youtube.com/...", color: "bg-blue-100" },
+  ];
+
+  // 3. 편지/기록 데이터
+  const notes = [
+    { date: "2025.03.20", content: "오늘 같이 먹은 파스타 정말 맛있었어! 다음에 또 가자." },
+    { date: "2025.03.14", content: "화이트데이 선물 고마워. 소중히 잘 간직할게! ❤️" },
+  ];
+
   return (
-    
-    <div className="min-h-screen bg-slate-900 text-slate-200 selection:bg-indigo-500/30">
-      {/* 배경 장식: 물리학 느낌의 은은한 광원 */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] rounded-full bg-blue-900/20 blur-[120px]" />
-        <div className="absolute bottom-[10%] right-[10%] w-[30%] h-[30%] rounded-full bg-purple-900/10 blur-[100px]" />
-      </div>
-
-      {/* 네비게이션 */}
-      <nav className="relative z-10 flex justify-between items-center p-8 max-w-6xl mx-auto">
-        <h1 className="text-xl font-bold tracking-tighter text-white">JI-SUNG PARK</h1>
-        <div className="space-x-8 text-sm font-medium text-slate-400">
-          <a href="#" className="hover:text-cyan-400 transition-colors">Researgitch</a>
-          <a href="#" className="hover:text-cyan-400 transition-colors">Papers</a>
-          <a href="#" className="hover:text-cyan-400 transition-colors">Contact</a>
+    <div className="min-h-screen bg-[#fff5f5] text-slate-800 font-sans pb-20">
+      {/* 헤더: D-Day 표시 */}
+      <header className="pt-20 pb-10 text-center">
+        <h1 className="text-4xl font-extrabold text-rose-400 mb-4 italic">Ji-Sung & ❤️</h1>
+        <div className="inline-block px-6 py-2 bg-white rounded-full shadow-sm border border-rose-100">
+          <span className="text-rose-500 font-bold text-xl flex items-center gap-2">
+            우리 함께한 지 <span className="text-2xl">{days}</span>일 째
+          </span>
         </div>
-      </nav>
+      </header>
 
-      {/* 메인 히어로 섹션 */}
-      <main className="relative z-10 max-w-6xl mx-auto px-8 pt-24 pb-32">
-        <div className="space-y-6">
-          <p className="text-cyan-500 font-mono tracking-widest text-sm uppercase">Theoretical Physicist</p>
-          <h2 className="text-6xl md:text-8xl font-extrabold text-white tracking-tight leading-none">
-            Exploring the <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-200">
-              Cosmic Logic.
-            </span>
+      <main className="max-w-md mx-auto px-6 space-y-12">
+        {/* 버튼 링크 섹션 */}
+        <section>
+          <h2 className="text-lg font-bold mb-4 text-rose-300 flex items-center gap-2">
+            <span>✨</span> 우리의 기록들
           </h2>
-          <p className="max-w-xl text-lg text-slate-400 leading-relaxed">
-            안녕하세요, 물리학자 **박지성**입니다. <br />
-            자연과학부터 철학, 신학, 문학을 아루르는 진리를 탐구하는 학자입니다. 
-            양자 역학부터 우주론까지, 미지의 영역을 코드로 시뮬레이션하고 연구합니다.
-          </p>
-          
-          <div className="pt-8 flex gap-4">
-            <button 
-            onClick={scrollToCalc} 
-            className="px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-cyan-400 transition-all duration-300">
-              연구 업적 보기
-            </button>
-
-            <button className="px-6 py-3 border border-slate-700 rounded-full hover:border-cyan-500/50 hover:bg-slate-900 transition-all">
-              문의하기
-            </button>
+          <div className="grid gap-4">
+            {links.map((link, idx) => (
+              <a 
+                key={idx} 
+                href={link.url} 
+                target="_blank" 
+                className={`${link.color} p-5 rounded-2xl flex justify-between items-center hover:scale-[1.02] transition-transform shadow-sm`}
+              >
+                <span className="font-bold text-slate-700">{link.title}</span>
+                <span className="text-slate-400 text-xl">→</span>
+              </a>
+            ))}
           </div>
-        </div>
+        </section>
 
-        {/* 간단한 연구 분야 카드 섹션 */}
-        <div className="grid md:grid-cols-3 gap-6 mt-32">
-          {[
-            { title: "Quantum Computing", desc: "양자 얽힘을 이용한 연산 모델 연구" },
-            { title: "Astrophysics", desc: "초신성 폭발과 중력파의 상관관계 분석" },
-            { title: "Particle Physics", desc: "표준 모형 너머의 새로운 입자 탐색" },
-          ].map((item, idx) => (
-            <div key={idx} className="p-8 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-cyan-500/30 transition-all group">
-              <h3 className="text-white font-semibold mb-2 group-hover:text-cyan-400">{item.title}</h3>
-              <p className="text-sm text-slate-500">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-        <Calculator />
+        {/* 편지/기록 섹션 */}
+        <section>
+          <h2 className="text-lg font-bold mb-4 text-rose-300 flex items-center gap-2">
+            <span>💌</span> 한 줄 편지
+          </h2>
+          <div className="space-y-4">
+            {notes.map((note, idx) => (
+              <div key={idx} className="bg-white p-6 rounded-3xl shadow-sm border border-rose-50/50">
+                <p className="text-sm text-slate-400 mb-2 font-mono">{note.date}</p>
+                <p className="text-slate-600 leading-relaxed">{note.content}</p>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
 
-      <footer className="relative z-10 border-t border-slate-900 py-12 text-center text-slate-600 text-xs">
-        <p>© 2026 Ji-Sung Park. All rights reserved.</p>
+      {/* 하단 장식 */}
+      <footer className="mt-20 text-center text-rose-200 text-sm italic">
+        Forever & Always
       </footer>
     </div>
   );
