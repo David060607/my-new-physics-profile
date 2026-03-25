@@ -16,21 +16,21 @@ export default function CouplePage() {
   // 2. 공유 링크 데이터 (구글 포토 등)
   const links = [
     { title: "📸 우리 사진첩", url: "https://photos.app.goo.gl/JwyhoDTe2zA6ogE68", color: "bg-rose-100" },
-    { title: "📍 가고 싶은 맛집", url: "https://maps.google.com/...", color: "bg-orange-100" },
-    { title: "🎵 우리 테마곡", url: "https://youtube.com/...", color: "bg-blue-100" },
+    { title: "📍 지성 기도 제목", url: "https://www.notion.so/Oratio-32d13496fc318008a56ec7d9336b352b?source=copy_link", color: "bg-orange-100" },
+    { title: "🎵 우리 테마곡", url: "https://youtu.be/BegG8WySo4k?si=sd-zuhyN17him2AD", color: "bg-blue-100" },
   ];
 
   // 3. 편지/기록 데이터
   const notes = [
-    { date: "2025.03.20", content: "오늘 같이 먹은 파스타 정말 맛있었어! 다음에 또 가자." },
-    { date: "2025.03.14", content: "화이트데이 선물 고마워. 소중히 잘 간직할게! ❤️" },
+    { date: "2025.03.25", content: "오늘 하늘이 너무 예쁘더라, 그대처럼" },
+    { date: "2025.03.26", content: "그대의❤️ 손모양 때문에 잠이 안와여.." },
   ];
 
   return (
     <div className="min-h-screen bg-[#fff5f5] text-slate-800 font-sans pb-20">
       {/* 헤더: D-Day 표시 */}
       <header className="pt-20 pb-10 text-center">
-        <h1 className="text-4xl font-extrabold text-rose-400 mb-4 italic">Ji-Sung & ❤️</h1>
+        <h1 className="text-4xl font-extrabold text-rose-400 mb-4 italic"> Davinnie ❤️</h1>
         <div className="inline-block px-6 py-2 bg-white rounded-full shadow-sm border border-rose-100">
           <span className="text-rose-500 font-bold text-xl flex items-center gap-2">
             우리 함께한 지 <span className="text-2xl">{days}</span>일 째
